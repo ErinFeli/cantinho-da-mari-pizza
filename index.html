@@ -163,6 +163,23 @@
         Item adicionado ao carrinho! ✓
     </div>
 
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content confirmation-content">
+            <div class="confirmation-icon">✓</div>
+            <h3>Item Adicionado ao Carrinho!</h3>
+            <p class="confirmation-message">O que deseja fazer agora?</p>
+            <div class="confirmation-buttons">
+                <button type="button" class="btn-continue" onclick="continueOrdering()">
+                    Adicionar Mais Itens
+                </button>
+                <button type="button" class="btn-finish" onclick="goToCheckout()">
+                    Finalizar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

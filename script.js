@@ -230,7 +230,9 @@ function addToCart() {
     // Atualizar interface
     renderCart();
     closeModal();
-    showNotification();
+    
+    // Mostrar modal de confirmação
+    showConfirmationModal();
 }
 
 // ========================================
@@ -299,6 +301,40 @@ function showNotification() {
     setTimeout(() => {
         notification.classList.remove('show');
     }, 2000);
+}
+
+// ========================================
+// MOSTRAR MODAL DE CONFIRMAÇÃO
+// ========================================
+function showConfirmationModal() {
+    document.getElementById('confirmation-modal').classList.add('active');
+}
+
+// ========================================
+// CONTINUAR ADICIONANDO ITENS
+// ========================================
+function continueOrdering() {
+    document.getElementById('confirmation-modal').classList.remove('active');
+    showNotification();
+}
+
+// ========================================
+// IR PARA FINALIZAÇÃO (FORMULÁRIO)
+// ========================================
+function goToCheckout() {
+    document.getElementById('confirmation-modal').classList.remove('active');
+    
+    // Scroll suave para o formulário
+    const form = document.querySelector('.customer-form-section');
+    if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Destacar formulário brevemente
+        form.style.animation = 'highlight 1s ease';
+        setTimeout(() => {
+            form.style.animation = '';
+        }, 1000);
+    }
 }
 
 // ========================================
