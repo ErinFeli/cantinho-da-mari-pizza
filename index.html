@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantinho da Mari - Pizzaria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Cantinho da Mari Pizza</h1>
+                <p class="subtitle">Sabor e tradição em cada fatia</p>
+                <div class="header-info">
+                    <span class="info-item">📍 Canguaretama, RN</span>
+                    <span class="info-item">📱 (84) 99136-1035</span>
+                    <span class="info-item">⏰ Seg-Dom: 18h-22h</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container">
+        
+        <!-- SEÇÃO DO CARDÁPIO -->
+        <section class="menu-section">
+            <h2>Nosso Cardápio</h2>
+            
+            <!-- PIZZAS - Cadastro feito no JavaScript -->
+            <div id="pizzas-list" class="pizzas-grid">
+                <!-- Pizzas serão inseridas aqui pelo JavaScript -->
+            </div>
+        </section>
+
+        <!-- CARRINHO -->
+        <section class="cart-section">
+            <h2>🛒 Seu Pedido</h2>
+            <div id="cart-items" class="cart-items">
+                <p class="empty-cart">Seu carrinho está vazio</p>
+            </div>
+            <div class="cart-total">
+                <strong>Total:</strong>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO DE DADOS DO CLIENTE -->
+        <section class="customer-form-section">
+            <h2>📋 Seus Dados</h2>
+            <form id="customer-form">
+                <div class="form-group">
+                    <label for="customer-name">Nome Completo *</label>
+                    <input type="text" id="customer-name" required placeholder="Digite seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-phone">Telefone *</label>
+                    <input type="tel" id="customer-phone" required placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-address">Endereço Completo *</label>
+                    <textarea id="customer-address" required placeholder="Rua, número, bairro, complemento..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment-method">Forma de Pagamento *</label>
+                    <select id="payment-method" required>
+                        <option value="">Selecione...</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="PIX">PIX</option>
+                        <option value="Cartão de Débito">Cartão de Débito</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="change-group" style="display: none;">
+                    <label for="change-for">Troco para quanto?</label>
+                    <input type="text" id="change-for" placeholder="Ex: R$ 50,00">
+                </div>
+
+                <!-- BOTÃO FINALIZAR PEDIDO -->
+                <button type="submit" class="btn-submit" id="btn-finish-order">
+                    📱 Finalizar Pedido no WhatsApp
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>🍕 &copy; 2026 Cantinho da Mari Pizza - Feito com amor e dedicação</p>
+            <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">📍 Canguaretama, RN | 📱 (84) 99136-1035</p>
+            <p style="margin-top: 4px; font-size: 0.85rem; opacity: 0.8;">⏰ Funcionamento: Segunda a Domingo, 18h às 22h</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DE ADICIONAR PIZZA -->
+    <div id="pizza-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-pizza-name">Pizza</h3>
+            
+            <div class="modal-body">
+                <!-- Tamanho -->
+                <div class="form-group">
+                    <label>Tamanho *</label>
+                    <div class="size-options">
+                        <button type="button" class="size-btn" data-size="M">
+                            <span class="size-label">M</span>
+                            <span class="size-desc">Média</span>
+                            <span class="size-price" id="price-M">R$ 0,00</span>
+                        </button>
+                        <button type="button" class="size-btn" data-size="G">
+                            <span class="size-label">G</span>
+                            <span class="size-desc">Grande</span>
+                            <span class="size-price" id="price-G">R$ 0,00</span>
+                        </button>
+                        <button type="button" class="size-btn" data-size="GG">
+                            <span class="size-label">GG</span>
+                            <span class="size-desc">Gi-Grande</span>
+                            <span class="size-price" id="price-GG">R$ 0,00</span>
+                        </button>
+                        <button type="button" class="size-btn" data-size="EG">
+                            <span class="size-label">EG</span>
+                            <span class="size-desc">Extra Grande</span>
+                            <span class="size-price" id="price-EG">R$ 0,00</span>
+                        </button>
+                        <button type="button" class="size-btn" data-size="TF">
+                            <span class="size-label">TF</span>
+                            <span class="size-desc">Tamanho Família</span>
+                            <span class="size-price" id="price-TF">R$ 0,00</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Observações -->
+                <div class="form-group">
+                    <label for="pizza-notes">Observações (opcional)</label>
+                    <textarea id="pizza-notes" placeholder="Ex: Sem cebola, borda recheada..."></textarea>
+                </div>
+
+                <!-- Total do Item -->
+                <div class="modal-total">
+                    <strong>Total do Item:</strong>
+                    <span id="modal-item-total">R$ 0,00</span>
+                </div>
+
+                <!-- Botão Adicionar -->
+                <button type="button" class="btn-add-to-cart" id="btn-add-to-cart">
+                    Adicionar ao Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICAÇÃO -->
+    <div id="notification" class="notification">
+        Item adicionado ao carrinho! ✓
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
